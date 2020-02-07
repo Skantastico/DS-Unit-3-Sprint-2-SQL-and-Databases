@@ -1,0 +1,3 @@
+psychopg2
+python-dontenv
+pandas

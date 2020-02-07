@@ -96,12 +96,12 @@ COUNT(item_id) as `Item Count`
 FROM charactercreator_character_inventory
 GROUP BY character_id LIMIT 20 '''
 
-# On average?
+qic = curs.execute(query).fetchall()
+# data = qic.fetchall()
 
-qic = curs.execute(query)
-data = qic.fetchall()
-df = pd.read_sql(query, data)
-print(df)
+for row in qic:
+	print(row)
+
 
 # How many weapons does each character have?
 
