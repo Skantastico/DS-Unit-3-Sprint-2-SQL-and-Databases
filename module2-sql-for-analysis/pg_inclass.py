@@ -16,9 +16,22 @@ connection = psycopg2.connect(
 )
 
 cursor = connection.cursor()
-cursor.execute('SELECT * from test_table;')
 
-# results = cursor.fetchone()
+
+insert_query = """
+INSERT INTO test_table (name, data) VALUES
+(
+    'A row name',
+    null
+),
+(
+    'Another row, with JSON',
+    '{"a": 1, "b": ["dog", "cat", 42], "c": true}'::JSONB
+
+);
+"""
+
+cursor.execute(insert_query)
 
 
 print(results)
